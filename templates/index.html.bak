@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="../static/css/semantic.min.css" charset="utf-8" media="screen">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="../static/css/semantic.min.js"></script>
+
+    <title>Yh Blog</title>
+    <style media="screen">
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+
+}
+        .ui.container{
+            max-width: 68%!important
+        }
+        /*.ui.segment{
+          width: 100em;
+        }*/
+    </style>
+  </head>
+  <body>
+        <div class="ui inverted vertical masthead center aligned segment">
+          <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+
+              <a href="#" class="active item">主页</a>
+              <a href="#" class="item">Django</a>
+              <a href="#" class="item">机器学习(笔记)</a>
+              <div class="right item">
+                <div class="ui transparent inverted icon input">
+                  <i class="search icon"></i>
+                  <input type="text" name="search" placeholder="搜索">
+
+                </div>
+                  <a class="right floated ui inverted button"href="/admin">Admin</a>
+
+              </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="ui left fixed vertical menu " style="top:85px;">
+            <div class="item">
+              <img class="ui mini image" src="../images/logo.png">
+            </div>
+            <a class="item">Pthon</a>
+            <a class="item">推荐</a>
+            <a class="item">No</a>
+          </div>
+          {% for post in post_list %}
+          <div class="ui center aligned container aised segment" >
+                  <h1>{{ post.title }}</h1>
+                  <img class="ui small left floated image" style="top:-2.99em;" src={{ post.title_image }}>
+            <p>{{ post.content|truncatechars:130 }}</p>
+            <p>
+            <a href="#">
+              <button type="button" name="button" class="positive ui button">ReadMore</button>
+            </a>
+          </p>
+          </div>
+
+            {% endfor %}
+
+  </body>
+</html>
