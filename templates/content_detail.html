@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load staticfiles %}
+{% load markdown_deux_tags %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -8,11 +10,13 @@
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
     <script src="../static/css/semantic.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/default.css"/>
     <title>{{ contents.title }}</title>
     <style>
         .ui.text.container {
             max-width: 1092px!important;
         }
+
     </style>
   </head>
 <body>

@@ -16,6 +16,7 @@
     </style>
   </head>
 <body>
+{% load markdown_deux_tags %}
             <div class="ui inverted fixed vertical masthead center aligned segment">
               <div class="ui container">
                 <div class="ui large secondary inverted pointing menu">
@@ -40,8 +41,9 @@
             {% for row in contents %}
         <div class="ui text container segment">
             {% autoescape off %}
+                <a target="_blank" href="content_detail-{{ row.id}}">
         <h1 class="ui header">{{ row.title }}</h1>
-        <p class="ui content">{{ row.content}}</p>
+                </a>
             {% endautoescape %}
         </div>
             {% endfor %}

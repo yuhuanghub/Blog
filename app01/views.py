@@ -12,7 +12,7 @@ def login(request):
 
 def content_detail(request,uid):
     contents = Article.objects.get(id=uid)
-    contents.content = markdown(contents.content,extensions=[
+    contents.content = markdown(contents.content,['codehilite'],extensions=[
         'markdown.extensions.extra',
         'markdown.extensions.codehilite',
         'markdown.extensions.toc',
@@ -22,6 +22,7 @@ def content_detail(request,uid):
 
 def django_url(request):
     content = Article.objects.filter(category_id=1).values()
+    print(content)
     return render(request,'django.html',{'contents':content})
 
 def ml(request):

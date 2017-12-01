@@ -1,6 +1,4 @@
 from django.db import models
-# Create your models here.
-
 class Category(models.Model):
     caption = models.CharField(max_length=16)
 
@@ -19,7 +17,6 @@ class Article(models.Model):
     title_image = models.ForeignKey(Category_img)
     data_time = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-
     category = models.ForeignKey(Category)
 
     class Meta:
