@@ -27,7 +27,6 @@ urlpatterns = [
     url(r'^login$', views.login),
     url(r'^content_detail-(?P<uid>\d+)', views.content_detail),
     # url(r'^ckeditor/', include('ckeditor.urls')),
-    url(r'ckeditor/', include('ckeditor_uploader.urls')),
     url(r'django$',views.django_url),
     url(r'ml$',views.ml),
     url(r'python',views.python)

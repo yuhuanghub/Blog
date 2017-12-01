@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from app01.models import Article
+from markdown import markdown
 # Create your views here.
 
 def index(request):
@@ -10,9 +11,14 @@ def login(request):
     return render(request,'login.html')
 
 def content_detail(request,uid):
-    contents = Article.objects.filter(id=uid).values()
+    contents = Article.objects.get(id=uid)
+    contents.content = markdown(contents.content,extensions=[
+        'markdown.extensions.extra',
+        'markdown.extensions.codehilite',
+        'markdown.extensions.toc',
+    ])
     #print(contents)
-    return render(request,'content_detail.html',{'contents':contents[0]})
+    return render(request,'content_detail.html',{'contents':contents})
 
 def django_url(request):
     content = Article.objects.filter(category_id=1).values()

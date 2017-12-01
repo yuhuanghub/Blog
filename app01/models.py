@@ -1,5 +1,4 @@
 from django.db import models
-from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Category(models.Model):
@@ -19,7 +18,7 @@ class Article(models.Model):
     #title_image =models.URLField(max_length=200,null=True,default='http://i2.bvimg.com/620816/a0cc009306821447.jpg')
     title_image = models.ForeignKey(Category_img)
     data_time = models.DateTimeField(auto_now_add=True)
-    content = RichTextField(blank=True,verbose_name='内容')
+    content = models.TextField()
 
     category = models.ForeignKey(Category)
 
