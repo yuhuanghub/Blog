@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/css/semantic.min.css" charset="utf-8" media="screen">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="../static/css/semantic.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/default.css"/>
+    <title>{{ contents.title }}</title>
+    <style media="screen">
+        .masthead .ui.menu .ui.button {
+             margin-left: 0.5em;
+
+}
+        .ui.container{
+            max-width: 75%!important
+        }
+        /*.ui.segment{
+          width: 100em;
+        }*/
+        .ui.grid>.column:not(.row) {
+            padding-top: 3rem;
+            padding-bottom: 1rem;
+        }
+        .ui.grid>.column:not(.row), .ui.grid>.row>.column {
+            padding-left: 14rem;
+        }
+        {% block detail_style %}
+        {% endblock %}
+
+    </style>
+  </head>
+<body>
+            <div class="ui inverted fixed vertical masthead center aligned segment">
+              <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    {% block active %}{% endblock %}
+                  <div class="right menu">
+                    <a href="#" class="button item">登陆</a>
+                    <a href="login.html" class="button item">注册</a>
+                    <a target="_blank" href="/admin" class="button item">管理</a>
+
+                </div>
+                </div>
+              </div>
+            </div>
+        <div class="ui grid">
+            <div class="thirteen wide column">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+</body>
+</html>

@@ -1,52 +1,20 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-{% load markdown_deux_tags %}
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../static/css/semantic.min.css" charset="utf-8" media="screen">
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="../static/css/semantic.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="../static/default.css"/>
-    <title>{{ contents.title }}</title>
-    <style>
-        .ui.text.container {
-            max-width: 1092px!important;
-        }
-
-    </style>
-  </head>
-<body>
-            <div class="ui inverted fixed vertical masthead center aligned segment">
-              <div class="ui container">
-                <div class="ui large secondary inverted pointing menu">
-
-                  <a href="index" class="item">主页</a>
-                  <a href="django" class="item">Django</a>
-                  <a href="ml" class="item">机器学习(笔记)</a>
-                    <a href="python" class="item">Python</a>
-                  <div class="right item">
-                    <div class="ui transparent inverted icon input">
-                      <i class="search icon"></i>
-                      <input type="text" name="search" placeholder="搜索">
-
-                    </div>
-                      <div style="padding-right: 5px">
-                      <a class="right floated ui inverted button"href="/admin" >Login</a>
-                        </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+{% extends 'basic.html' %}
+{% block detail_style %}
+    .ui.text.container {
+    max-width: 830px!important;
+    line-height: 5.5;
+}
+{% endblock %}
+    {% block active %}
+        <a href="index" class="item">主页</a>
+        <a href="django" class="item">Django</a>
+        <a href="ml" class="item">机器学习(笔记)</a>
+        <a href="python" class="item">Python</a>
+    {% endblock %}
+    {% block content %}
         <div class="ui text container segment">
             {% autoescape off %}
         <h1 class="ui content">{{ contents.content}}</h1>
             {% endautoescape %}
         </div>
-
-</body>
-</html>
+    {% endblock %}

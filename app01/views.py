@@ -17,7 +17,7 @@ def content_detail(request,uid):
         'markdown.extensions.codehilite',
         'markdown.extensions.toc',
     ])
-    #print(contents)
+    contents.increat_views()
     return render(request,'content_detail.html',{'contents':contents})
 
 def django_url(request):

@@ -1,51 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../static/css/semantic.min.css" charset="utf-8" media="screen">
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="../static/css/semantic.min.js"></script>
-    <title>Django</title>
-    <style>
-        .ui.text.container {
-            max-width: 1092px!important;
-        }
-    </style>
-  </head>
-<body>
-{% load markdown_deux_tags %}
-            <div class="ui inverted fixed vertical masthead center aligned segment">
-              <div class="ui container">
-                <div class="ui large secondary inverted pointing menu">
+{% extends 'basic.html' %}
+    {% block active %}
+        <a href="index" class="item">主页</a>
+        <a href="django" class="active item">Django</a>
+        <a href="ml" class="item">机器学习(笔记)</a>
+        <a href="python" class="item">Python</a>
+    {% endblock %}
 
-                  <a href="index" class="item">主页</a>
-                  <a href="django" class="active item">Django</a>
-                  <a href="ml" class="item">机器学习(笔记)</a>
-                    <a href="python" class="item">Python</a>
-                  <div class="right item">
-                    <div class="ui transparent inverted icon input">
-                      <i class="search icon"></i>
-                      <input type="text" name="search" placeholder="搜索">
-
-                    </div>
-                      <div style="padding-right: 5px">
-                      <a class="right floated ui inverted button"href="/admin" >Login</a>
-                        </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    {% block content %}
             {% for row in contents %}
         <div class="ui text container segment">
             {% autoescape off %}
                 <a target="_blank" href="content_detail-{{ row.id}}">
-        <h1 class="ui header">{{ row.title }}</h1>
+                 <h1 class="ui header">{{ row.title }}</h1>
                 </a>
+                    <div class="ui statistic value">
+                      阅读次数 ({{ row.views }})
+                    </div>
             {% endautoescape %}
         </div>
             {% endfor %}
-</body>
-</html>
+    {% endblock %}
