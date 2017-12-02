@@ -1,63 +1,50 @@
 <!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="../static/css/semantic.min.css" charset="utf-8" media="screen">
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
     <script src="../static/css/semantic.min.js"></script>
-    <title>Title</title>
-     <style type="text/css">
-    body {
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
-    .image {
-      margin-top: -100px;
-    }
-    .column {
-      max-width: 450px;
-    }
-  </style>
-</head>
-<body>
-  <div class="ui middle aligned center aligned grid">
-  <div class="column">
-    <h2 class="ui teal image header">
-      <img src="assets/images/logo.png" class="image">
-      <div class="content">
-        登录到账号
-      </div>
-    </h2>
-    <form class="ui large form">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" placeholder="邮箱地址">
+    <title>Login</title>
+    <style media="screen" type="text/css">
+      .grid .column{
+        max-width: 400px;
+      }
+      .grid {
+        height: 100%;
+      }
+        body{
+            background-color: #DADADA;
+        }
+    </style>
+  </head>
+  <body>
+        <div class="ui middle aligned one column centered grid">
+
+              <div class="column">
+                  <div class="ui large form stackable segment">
+                      <h2 class="ui center aligned teal header">注册账号</h2>
+                      <form class="ui form" action="/login/" method="post">
+                    {% csrf_token %}
+                    <p> <i class="user icon"></i>
+                        {% if massage %}
+                        {{ massage }}
+                    </p>
+                    <button type="submit" class="ui fluid large teal submit button ">重新注册</button>
+                          {% else %}
+                          {{ obj.username  }}
+                          <p><i class="lock icon"></i>{{ obj.pwd }}</p>
+                          <button type="submit" class="ui fluid large teal submit button ">注册</button>
+                          {% endif %}
+                </form>
+                    </div>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="密码">
-          </div>
-        </div>
-        <div class="ui fluid large teal submit button">登录</div>
-      </div>
-
-      <div class="ui error message"></div>
-
-    </form>
-
-    <div class="ui message">
-      新用户？ <a href="login.php#">注册</a>
     </div>
-  </div>
-</div>
-</body>
+
+  </body>
 </html>

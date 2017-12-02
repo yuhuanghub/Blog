@@ -1,71 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    {% load staticfiles %}
-    <link rel="stylesheet" href="../static/css/semantic.min.css" charset="utf-8" media="screen">
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="../static/css/semantic.min.js"></script>
-
-    <title>Yh Blog</title>
-    <style media="screen">
-        .masthead .ui.menu .ui.button {
-             margin-left: 0.5em;
-
-}
-        .ui.container{
-            max-width: 75%!important
-        }
-        /*.ui.segment{
-          width: 100em;
-        }*/
-        .ui.grid>.column:not(.row) {
-            padding-top: 3rem;
-            padding-bottom: 1rem;
-        }
-        .ui.grid>.column:not(.row), .ui.grid>.row>.column {
-            padding-left: 14rem;
-        }
-
-    </style>
-  </head>
-  <body>
-        <div class="ui inverted fixed vertical masthead center aligned segment">
-          <div class="ui container">
-            <div class="ui large secondary inverted pointing menu">
-
-              <a href="index" class="active item">主页</a>
-              <a href="django" class="item">Django</a>
-              <a href="ml" class="item">机器学习(笔记)</a>
-                <a href="python" class="item">Python</a>
-                <div class="right menu">
-                    <a href="#" class="button item">登陆</a>
-                    <a href="login.html" class="button item">注册</a>
-                    <a target="_blank" href="/admin" class="button item">管理</a>
-
-                </div>
-{#              <div class="right item">#}
-{#                <div class="ui transparent inverted icon input">#}
-{#                  <i class="search icon"></i>#}
-{#                  <input type="text" name="search" placeholder="搜索">#}
-{##}
-{#                </div>#}
-{#                  <div style="padding-right: 5px">#}
-{##}
-{#                  <a class="right floated ui inverted button"href="/admin" >Text</a>#}
-{#                    </div>#}
-{#                    <div class="item">#}
-{#                  <a target="_blank" href="https://github.com/yuhuanghub/Blog" style="margin-right: -50px">#}
-{#                      <i class="ui github icon" style="font-size: 2em;"></i>#}
-{#                 </div>#}
-{#                  </a>#}
-{#              </div>#}
-            </div>
-          </div>
-        </div>
+{% extends 'basic.html' %}
+{% block active %}
+    <a href="index" class="active item">主页</a>
+    <a href="django" class="item">Django</a>
+    <a href="ml" class="item">机器学习(笔记)</a>
+    <a href="python" class="item">Python</a>
+{% endblock %}
+        {% block content %}
         <div class="ui grid">
             <div class="thirteen wide column">
                 {% for post in post_list %}
@@ -79,5 +19,4 @@
                 {% endfor %}
             </div>
         </div>
-  </body>
-</html>
+    {% endblock %}

@@ -24,12 +24,9 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index$', views.index),
-    url(r'^login$', views.login),
+    url(r'^login/$', views.login),
     url(r'^content_detail-(?P<uid>\d+)', views.content_detail),
-    # url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'django$',views.django_url),
     url(r'ml$',views.ml),
-    url(r'python',views.python)
-    # url(r"^uploads/(?P<path>.*)$", static.serve, {"document_root": settings.MEDIA_ROOT},),
-    # url(r'^admin/upload/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),
+    url(r'python$',views.python)
 ]
